@@ -1,8 +1,8 @@
 [
     {
-        "mark": "Nissan",
-        "model": "GTR-4000",
-        "price": "132",
+        "mark": "Toyota",
+        "model": "Camry 3.5",
+        "price": "1",
         "characteristics": [
             {
                 "name": "Цвет",
@@ -20,5 +20,75 @@
                 "unit": "кг."
             }
         ],
+        "image_path": "1",
+        "car_type": "Легковой"
+    },
+    {
+        "mark": "Nissan",
+        "model": "NISMO",
+        "price": "6700000",
+        "characteristics": [
+            {
+                "name": "Цвет",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Скорость",
+                "meaning": "240",
+                "unit": "м/чк"
+            },
+            {
+                "name": "Вес",
+                "meaning": "1500",
+                "unit": "кг."
+            },
+            {
+                "name": "1",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Мощность",
+                "meaning": "540",
+                "unit": "л/с"
+            }
+        ],
         "image_path": "CarImages/toyota_camry.jpg",
-        "car_type": 
+        "car_type": "Кабриолет"
+    },
+    {
+        "mark": "Jaguar",
+        "model": "V12-h",
+        "price": "12000000",
+        "characteristics": [
+            {
+                "name": "Цвет",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Скорость",
+                "meaning": "240",
+                "unit": "м/чк"
+            },
+            {
+                "name": "Вес",
+                "meaning": "1500",
+                "unit": "кг."
+            },
+            {
+                "name": "1",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Мощность",
+                "meaning": "540",
+                "unit": "л/с"
+            }
+        ],
+        "image_path": "CarImages/toyota_camry.jpg",
+        "car_type": "Кабриолет"
+    }
+]

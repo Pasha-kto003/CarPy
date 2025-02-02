@@ -185,7 +185,7 @@ class Main:
 
         print("Выберите автомобиль для добавления в склад:")
         for idx, car in enumerate(cars, start=1):
-            print(f"{idx}. {car.mark.name} {car.model.name} (Цена: {car.price})")
+            print(f"{idx}. {car.mark.name} {car.model.name} {car.car_type.name} (Цена: {car.price})")
 
         car_choice = int(input("Введите номер автомобиля: ")) - 1
         if 0 <= car_choice < len(cars):
@@ -196,6 +196,7 @@ class Main:
                 print("Ошибка: car_type отсутствует у выбранного автомобиля!")
                 return
 
+            selected_car = cars[car_choice]
             warehouse_entry = WareHouse(
                 len(WareHouse.load_from_json()) + 1,
                 quantity,
@@ -203,8 +204,9 @@ class Main:
                     selected_car.mark,
                     selected_car.model,
                     selected_car.price,
+                    selected_car.characteristics,
                     selected_car.image_path,
-                    selected_car.car_type  # ✅ Теперь car_type точно передаётся
+                    selected_car.car_type
                 )
             )
 

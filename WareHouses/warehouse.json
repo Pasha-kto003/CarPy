@@ -1,1 +1,46 @@
-[]
+[
+    {
+        "record_number": 1,
+        "quantity": 1,
+        "car": {
+            "mark": "Nissan",
+            "model": "NISMO",
+            "price": "6700000",
+            "image_path": null,
+            "car_type": "Кабриолет"
+        }
+    },
+    {
+        "record_number": 2,
+        "quantity": 1,
+        "car": {
+            "mark": "Toyota",
+            "model": "Camry 3.5",
+            "price": "1",
+            "image_path": null,
+            "car_type": "Легковой"
+        }
+    },
+    {
+        "record_number": 3,
+        "quantity": 1,
+        "car": {
+            "mark": "Jaguar",
+            "model": "V12-h",
+            "price": "12000000",
+            "image_path": null,
+            "car_type": "Кабриолет"
+        }
+    },
+    {
+        "record_number": 4,
+        "quantity": 12,
+        "car": {
+            "mark": "Toyota",
+            "model": "Camry 3.5",
+            "price": "1",
+            "image_path": "1",
+            "car_type": "Легковой"
+        }
+    }
+]

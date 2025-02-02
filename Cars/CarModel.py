@@ -20,7 +20,7 @@ class Car:
             "price": self.price,
             "characteristics": self.characteristics,
             "image_path": self.image_path,
-            "car_type": self.car_type
+            "car_type": self.car_type.name
         }
 
     @staticmethod

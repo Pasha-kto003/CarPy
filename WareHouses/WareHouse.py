@@ -53,7 +53,8 @@ class WareHouse:
                         Model(car_data.get("model", "Неизвестно"), car_data.get("mark", "Неизвестно")),
                         car_data.get("price", 0),
                         car_data.get("image_path", ""),
-                        car_type  # ✅ Передаем car_type
+                        car_data.get("characteristics"),
+                        Type(car_data.get("car_type", "Неизвестно"))  # ✅ Передаем car_type
                     )
                 ))
 
