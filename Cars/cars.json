@@ -1,0 +1,24 @@
+[
+    {
+        "mark": "Nissan",
+        "model": "GTR-4000",
+        "price": "132",
+        "characteristics": [
+            {
+                "name": "Цвет",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Скорость",
+                "meaning": "240",
+                "unit": "м/чк"
+            },
+            {
+                "name": "Вес",
+                "meaning": "1500",
+                "unit": "кг."
+            }
+        ],
+        "image_path": "CarImages/toyota_camry.jpg",
+        "car_type": 
