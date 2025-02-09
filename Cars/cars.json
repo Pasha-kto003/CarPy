@@ -90,5 +90,39 @@
         ],
         "image_path": "CarImages/toyota_camry.jpg",
         "car_type": "Кабриолет"
+    },
+    {
+        "mark": "Suzuki",
+        "model": "Escudo",
+        "price": "1234644",
+        "characteristics": [
+            {
+                "name": "Цвет",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Скорость",
+                "meaning": "240",
+                "unit": "м/чк"
+            },
+            {
+                "name": "Вес",
+                "meaning": "1500",
+                "unit": "кг."
+            },
+            {
+                "name": "1",
+                "meaning": "Красный",
+                "unit": "цв."
+            },
+            {
+                "name": "Мощность",
+                "meaning": "540",
+                "unit": "л/с"
+            }
+        ],
+        "image_path": "CarImages/toyota_camry.jpg",
+        "car_type": "Внедорожник"
     }
 ]

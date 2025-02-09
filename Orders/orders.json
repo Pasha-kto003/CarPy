@@ -1,0 +1,112 @@
+[
+    {
+        "order_number": "1",
+        "order_type": "Продажа",
+        "warehouses": [
+            {
+                "record_number": 1,
+                "quantity": 1,
+                "car": {
+                    "mark": "Toyota",
+                    "model": "Camry 3.5",
+                    "price": "1",
+                    "image_path": "1",
+                    "characteristics": [
+                        {
+                            "name": "Цвет",
+                            "meaning": "Красный",
+                            "unit": "цв."
+                        },
+                        {
+                            "name": "Скорость",
+                            "meaning": "240",
+                            "unit": "м/чк"
+                        },
+                        {
+                            "name": "Вес",
+                            "meaning": "1500",
+                            "unit": "кг."
+                        }
+                    ],
+                    "car_type": "Легковой"
+                }
+            },
+            {
+                "record_number": 2,
+                "quantity": 1,
+                "car": {
+                    "mark": "Nissan",
+                    "model": "NISMO",
+                    "price": "6700000",
+                    "image_path": [
+                        {
+                            "name": "Цвет",
+                            "meaning": "Красный",
+                            "unit": "цв."
+                        },
+                        {
+                            "name": "Скорость",
+                            "meaning": "240",
+                            "unit": "м/чк"
+                        },
+                        {
+                            "name": "Вес",
+                            "meaning": "1500",
+                            "unit": "кг."
+                        },
+                        {
+                            "name": "1",
+                            "meaning": "Красный",
+                            "unit": "цв."
+                        },
+                        {
+                            "name": "Мощность",
+                            "meaning": "540",
+                            "unit": "л/с"
+                        }
+                    ],
+                    "characteristics": "CarImages/toyota_camry.jpg",
+                    "car_type": "Кабриолет"
+                }
+            },
+            {
+                "record_number": 3,
+                "quantity": 1,
+                "car": {
+                    "mark": "Jaguar",
+                    "model": "V12-h",
+                    "price": "12000000",
+                    "image_path": "CarImages/toyota_camry.jpg",
+                    "characteristics": [
+                        {
+                            "name": "Цвет",
+                            "meaning": "Красный",
+                            "unit": "цв."
+                        },
+                        {
+                            "name": "Скорость",
+                            "meaning": "240",
+                            "unit": "м/чк"
+                        },
+                        {
+                            "name": "Вес",
+                            "meaning": "1500",
+                            "unit": "кг."
+                        },
+                        {
+                            "name": "1",
+                            "meaning": "Красный",
+                            "unit": "цв."
+                        },
+                        {
+                            "name": "Мощность",
+                            "meaning": "540",
+                            "unit": "л/с"
+                        }
+                    ],
+                    "car_type": "Кабриолет"
+                }
+            }
+        ]
+    }
+]

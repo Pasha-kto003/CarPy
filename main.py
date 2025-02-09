@@ -150,32 +150,71 @@ class Main:
         order_types = OrderType.load_from_json()
         print("Доступные типы заказов:")
         for idx, order_type in enumerate(order_types, 1):
-            print(f"{idx}. {order_type}")
-
+            print(f"{idx}. {order_type.name}")
         order_choice = int(input("Выберите тип заказа (номер): "))
         order_type = order_types[order_choice - 1]
         warehouses = WareHouse.load_from_json()
         if not warehouses:
             print("Склад пуст! Сначала добавьте автомобили на склад.")
             return
-
+        selected_warehouses = []
         print("Доступные автомобили на складе:")
         for idx, wh in enumerate(warehouses, 1):
-            print(f"{idx}. {wh['car']['mark']} {wh['car']['model']} (Количество: {wh['quantity']})")
-
-        car_choice = int(input("Выберите автомобиль для заказа (номер): "))
-        selected_warehouse = WareHouse(
-            warehouses[car_choice - 1]["record_number"],
-            Car(Mark(warehouses[car_choice - 1]["car"]["mark"]),
-                Model(warehouses[car_choice - 1]["car"]["model"], warehouses[car_choice - 1]["car"]["mark"]),
-                warehouses[car_choice - 1]["car"]["price"],
-                warehouses[car_choice - 1]["car"]["image_path"], None), warehouses[car_choice - 1]["quantity"]
-        )
-
-        order = Order(order_number, order_type, selected_warehouse)
+            print(f"{idx}. {wh.car.mark} {wh.car.model} (Количество: {wh.quantity})")
+        while True:
+            car_choice = input("Выберите автомобиль для заказа (номер) или введите '0' для завершения: ")
+            if car_choice == '0':
+                break
+            car_choice = int(car_choice) - 1
+            if 0 <= car_choice < len(warehouses):
+                selected_warehouse = warehouses[car_choice]
+                if order_type.name.lower() == "продажа":
+                    max_quantity = selected_warehouse.quantity
+                    quantity_to_sell = int(input(f"Введите количество для продажи (максимум {max_quantity}): "))
+                    if quantity_to_sell > max_quantity:
+                        print("Ошибка: Нельзя продать больше, чем есть на складе.")
+                        continue
+                    selected_warehouse.quantity -= quantity_to_sell
+                    selected_warehouses.append(
+                        WareHouse(selected_warehouse.record_number, quantity_to_sell, selected_warehouse.car))
+                else:
+                    selected_warehouses.append(selected_warehouse)
+            else:
+                print("Некорректный выбор. Попробуйте снова.")
+        if not selected_warehouses:
+            print("Вы не выбрали ни одного автомобиля.")
+            return
+        order = Order(order_number, order_type, selected_warehouses)
         Order.save_to_json(order)
-        print(f"Заказ #{order_number} успешно добавлен!")
+        WareHouse.add_to_json(warehouses)
+        print("Заказ успешно создан!")
 
+    @staticmethod
+    def create_order_type():
+        new_type = input("Введите новый тип заказа: ").strip()
+        if new_type:
+            OrderType.add_new_order_type(new_type)
+        else:
+            print("Ошибка: тип заказа не может быть пустым!")
+
+    @staticmethod
+    def list_all_orders():
+        print("Список всех накладных:")
+        Order.display_all_orders()
+
+    @staticmethod
+    def list_all_order_types():
+        types = OrderType.load_from_json()
+        if not types:
+            print("Нет доступных типов заказов.")
+            return
+
+        print("Список типов заказов:")
+        for i, order_type in enumerate(types, 1):
+            print(f"{i}. {order_type.name}")
+    #endregion
+
+    #region WareHouse logic
     @staticmethod
     def create_warehouse_entry():
         cars = Car.load_from_json()
@@ -216,25 +255,6 @@ class Main:
             print("Некорректный выбор.")
 
     @staticmethod
-    def create_order_type():
-        new_type = input("Введите новый тип заказа: ").strip()
-        if new_type:
-            OrderType.add_new_order_type(new_type)
-        else:
-            print("Ошибка: тип заказа не может быть пустым!")
-
-    @staticmethod
-    def list_all_order_types():
-        types = OrderType.load_from_json()
-        if not types:
-            print("Нет доступных типов заказов.")
-            return
-
-        print("Список типов заказов:")
-        for i, order_type in enumerate(types, 1):
-            print(f"{i}. {order_type.name}")
-
-    @staticmethod
     def menu():
         while True:
             print("\nМеню:")
@@ -245,10 +265,11 @@ class Main:
             print("5. Показать все автомобили")
             print('6. Добавить тип кузова авто')
             print('7. Добавить накладную')
-            print('8. Добавить запись на накладную')
-            print("9. Добавить тип накладной")
-            print("10. Вывести все типы накладных")
-            print("11. Выйти")
+            print('8. Показать все накладные')
+            print('9. Добавить запись на накладную')
+            print("10. Добавить тип накладной")
+            print("11. Вывести все типы накладных")
+            print("12. Выйти")
 
             choice = input("Выберите действие: ")
 
@@ -267,16 +288,19 @@ class Main:
             elif choice == "7":
                 Main.create_order()
             elif choice == "8":
-                Main.create_warehouse_entry()
+                Main.list_all_orders()
             elif choice == "9":
-                Main.create_order_type()
+                Main.create_warehouse_entry()
             elif choice == "10":
-                Main.list_all_order_types()
+                Main.create_order_type()
             elif choice == "11":
+                Main.list_all_order_types()
+            elif choice == "12":
                 print("Выход из программы.")
                 break
             else:
                 print("Неверный выбор, попробуйте снова.")
+    #endregion
 
 
 if __name__ == "__main__":

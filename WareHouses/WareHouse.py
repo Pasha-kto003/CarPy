@@ -23,6 +23,7 @@ class WareHouse:
                 "model": self.car.model.name,  # ✅ Сохраняем модель как строку
                 "price": self.car.price,
                 "image_path": self.car.image_path,
+                "characteristics": self.car.characteristics,
                 "car_type": self.car.car_type.name  # ✅ Сохраняем тип как строку
             }
         }
