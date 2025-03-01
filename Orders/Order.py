@@ -16,7 +16,7 @@ class Order:
     def to_dict(self):
         return {
             "order_number": self.order_number,
-            "order_type": str(self.order_type.name),  # Преобразуем order_type в строку
+            "order_type": str(self.order_type.name),
             "warehouses": [wh.to_dict() for wh in self.warehouses]
         }
 

@@ -1,4 +1,6 @@
 import json
+import os
+
 from Marks.MarkCar import Mark
 from Models.ModelCar import Model
 from Types.TypesCar import Type
@@ -37,7 +39,11 @@ class Car:
             json.dump(cars, file, indent=4, ensure_ascii=False)
 
     @staticmethod
-    def load_from_json(filename="Cars/cars.json"):
+    def load_from_json(filename="C:/Users/User/PycharmProjects/CarProj/Cars/cars.json"):
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        if not os.path.exists(filename):
+            with open(filename, "w", encoding="utf-8") as file:
+                file.write("[]")
         try:
             with open(filename, "r", encoding="utf-8") as file:
                 data = json.load(file)

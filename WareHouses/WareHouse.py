@@ -10,21 +10,21 @@ class WareHouse:
     FILE_PATH = "WareHouses/warehouse.json"
 
     def __init__(self, record_number, quantity, car):
-        self.record_number = record_number  # Номер записи склада
-        self.quantity = quantity  # Количество машин
-        self.car = car  # Объект машины
+        self.record_number = record_number
+        self.quantity = quantity
+        self.car = car
 
     def to_dict(self):
         return {
             "record_number": self.record_number,
             "quantity": self.quantity,
             "car": {
-                "mark": self.car.mark.name,  # ✅ Сохраняем марку как строку
-                "model": self.car.model.name,  # ✅ Сохраняем модель как строку
+                "mark": self.car.mark.name,
+                "model": self.car.model.name,
                 "price": self.car.price,
                 "image_path": self.car.image_path,
                 "characteristics": self.car.characteristics,
-                "car_type": self.car.car_type.name  # ✅ Сохраняем тип как строку
+                "car_type": self.car.car_type.name
             }
         }
 
@@ -32,10 +32,10 @@ class WareHouse:
     def load_from_json():
         try:
             with open(WareHouse.FILE_PATH, "r", encoding="utf-8") as file:
-                content = file.read().strip()  # Убираем лишние пробелы и пустые строки
-                if not content:  # Если файл пустой — возвращаем пустой список
+                content = file.read().strip()
+                if not content:
                     return []
-                data = json.loads(content)  # ✅ Загружаем JSON нормально
+                data = json.loads(content)
 
             warehouses = []
             for wh in data:
@@ -44,7 +44,7 @@ class WareHouse:
                     continue
 
                 car_data = wh.get("car", {})
-                car_type = car_data.get("car_type", "Неизвестно")  # ✅ Если нет, ставим "Неизвестно"
+                car_type = car_data.get("car_type", "Неизвестно")
 
                 warehouses.append(WareHouse(
                     wh["record_number"],
@@ -55,7 +55,7 @@ class WareHouse:
                         car_data.get("price", 0),
                         car_data.get("image_path", ""),
                         car_data.get("characteristics"),
-                        Type(car_data.get("car_type", "Неизвестно"))  # ✅ Передаем car_type
+                        Type(car_data.get("car_type", "Неизвестно"))
                     )
                 ))
 
@@ -69,7 +69,11 @@ class WareHouse:
     def add_to_json(entry):
         try:
             data = WareHouse.load_from_json()
-            entry.record_number = len(data) + 1  # ✅ Автоматически присваиваем record_number
+            if any(wh.record_number == entry.record_number for wh in data):
+                print(f"Запись с номером {entry.record_number} уже существует.")
+                return
+
+            entry.record_number = len(data) + 1
             data.append(entry)
 
             with open(WareHouse.FILE_PATH, "w", encoding="utf-8") as file:

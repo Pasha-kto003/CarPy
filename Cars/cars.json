@@ -20,7 +20,7 @@
                 "unit": "кг."
             }
         ],
-        "image_path": "1",
+        "image_path": "C:/Users/User/PycharmProjects/CarProj/CarImages/LexusCar.png",
         "car_type": "Легковой"
     },
     {
@@ -54,7 +54,7 @@
                 "unit": "л/с"
             }
         ],
-        "image_path": "CarImages/toyota_camry.jpg",
+        "image_path": "C:/Users/User/PycharmProjects/CarProj/CarImages/LexusCar.png",
         "car_type": "Кабриолет"
     },
     {
@@ -88,7 +88,7 @@
                 "unit": "л/с"
             }
         ],
-        "image_path": "CarImages/toyota_camry.jpg",
+        "image_path": "C:/Users/User/PycharmProjects/CarProj/CarImages/LexusCar.png",
         "car_type": "Кабриолет"
     },
     {
@@ -122,7 +122,7 @@
                 "unit": "л/с"
             }
         ],
-        "image_path": "CarImages/toyota_camry.jpg",
+        "image_path": "C:/Users/User/PycharmProjects/CarProj/CarImages/LexusCar.png",
         "car_type": "Внедорожник"
     }
 ]
